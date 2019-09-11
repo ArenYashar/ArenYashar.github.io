@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<HTML LANG="en">
+ <HEAD>
+  <META CHARSET="utf-8">
+  <META NAME="viewport" CONTENT="width=device-width, initial-scale=1">
+  <TITLE>Wiki</TITLE>
+  <STYLE>
+   body
+   {background:             black;}
+  </STYLE>
+ </HEAD>
+ <BODY>
+  <SCRIPT ID="redirect">
+   var destination = "https://iolarawiki.000webhostapp.com/wiki/wiki.html",
+       query = document.location.href.split("?");
+   query.shift(); // Removes the portal host information.
+   if (query.length > 0)
+   {destination += "?" + query[0];}
+   else
+   {destination += "?Main";}
+   document.location.href = destination;
+  </SCRIPT>
+ </BODY>
+</HTML>
