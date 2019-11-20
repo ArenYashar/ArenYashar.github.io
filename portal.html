@@ -6,20 +6,24 @@
   <TITLE>Wiki</TITLE>
   <STYLE>
    body
-   {background:             url("https://iolarawiki.000webhostapp.com/wiki/img/max.png");
+   {background:             gray;
    }
   </STYLE>
  </HEAD>
  <BODY>
   <SCRIPT ID="redirect">
-   var destination = "https://iolarawiki.000webhostapp.com/wiki/wiki.html",
+   var destination = 
+       ["https://iolarawiki.000webhostapp.com/wiki/wiki.html"
+       ],
        query = document.location.href.split("?");
-   query.shift(); // Removes the portal host information.
-   if (query.length > 0)
-   {destination += "?" + query[0];}
-   else
-   {destination += "?Main";}
-   document.location.href = destination;
+
+   //TODO: Test each destination and the first to respond favorably is used.  How do I do this without violating CORS?
+   destination = destination[0]; // Default to just using the first (and at this time the only mirror)
+
+   query.shift(); // Remove the portal host information.
+   destination += "?" + (query[0] || "Main"); // Add destination host information, defaulting to Main if no specific destination is provided to the mirror.
+
+   document.location.href = destination; // And go to the destination as newly redefined.  Execute.
   </SCRIPT>
  </BODY>
 </HTML>
