@@ -25,7 +25,7 @@
    query.shift(); // Remove the portal host information.
    destination += "?" + (query[0] || "Main"); // Add destination host information, defaulting to Main if no specific destination is provided to the mirror.
 
-   window.name = destination.substring(1); // Save the destination to window.name
+   window.name = destination.split("?")[1]; // Save the destination to window.name
 
    document.location.href = destination; // And go to the destination as newly redefined.  Execute.
   </SCRIPT>
